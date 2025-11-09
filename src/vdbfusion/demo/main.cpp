@@ -253,7 +253,8 @@ void DebugNodes() {
         for (int i = 0; i < 8; i++) {
             openvdb::Coord idx = voxel + debug::shift[i];
             float node_weight{weights_acc.getValue(idx)};
-            printf("[Voxel2Node],node_weight: (%.3f),node_idx: (%d,%d,%d)\n",node_weight,idx.x(),idx.y(),idx.z());
+            float node_tsdf{tsdf_acc.getValue(idx)};
+            printf("[Voxel2Node],node_weight: (%.3f),node_tsdf: (%.3f),node_idx: (%d,%d,%d)\n",node_weight,node_tsdf,idx.x(),idx.y(),idx.z());
         }
 
     }
