@@ -222,3 +222,5 @@ dmypy.json
 ### clion ###
 .idea/
 cmake-build-debug/
+core*
+.vscode

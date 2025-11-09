@@ -44,6 +44,10 @@ public:
                    const Eigen::Vector3d& origin,
                    const std::function<float(float)>& weighting_function);
 
+    void Debug(const std::vector<Eigen::Vector3d>& points,
+                const Eigen::Vector3d& origin,
+                const std::function<float(float)>& weighting_function);
+
     /// @brief Integrates a new (globally aligned) PointCloud into the current
     /// tsdf_ volume.
     void inline Integrate(const std::vector<Eigen::Vector3d>& points,
@@ -68,6 +72,9 @@ public:
     /// @brief Extracts a TriangleMesh as the iso-surface in the actual volume
     [[nodiscard]] std::tuple<std::vector<Eigen::Vector3d>, std::vector<Eigen::Vector3i>>
     ExtractTriangleMesh(bool fill_holes = true, float min_weight = 0.5) const;
+
+    [[nodiscard]] std::tuple<std::vector<Eigen::Vector3d>, std::vector<Eigen::Vector3i>>
+    DebugExtract(bool fill_holes = true, float min_weight = 0.5) const;
 
 public:
     /// OpenVDB Grids modeling the signed distance field and the weight grid
